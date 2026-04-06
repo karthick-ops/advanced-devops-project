@@ -4,17 +4,28 @@ function App() {
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
 
+  const API = "http://192.168.1.12:5000"; // your backend IP
+
   const fetchItems = async () => {
-    const res = await fetch('http://192.168.1.12:5000/items');
+    const res = await fetch(`${API}/items`);
     const data = await res.json();
     setItems(data);
   };
 
   const addItem = async () => {
-    await fetch('http://192.168.1.12:5000/items', {
+    await fetch(`${API}/items`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name })
+    });
+    setName('');
+    fetchItems();
+  };
+
+  // 🔥 DELETE FUNCTION
+  const deleteItem = async (id) => {
+    await fetch(`${API}/items/${id}`, {
+      method: 'DELETE'
     });
     fetchItems();
   };
@@ -32,7 +43,16 @@ function App() {
 
       <ul>
         {items.map(item => (
-          <li key={item._id}>{item.name}</li>
+          <li key={item._id}>
+            {item.name}
+            {/* 🔥 DELETE BUTTON */}
+            <button 
+              onClick={() => deleteItem(item._id)} 
+              style={{ marginLeft: '10px', color: 'red' }}
+            >
+              Delete
+            </button>
+          </li>
         ))}
       </ul>
     </div>
