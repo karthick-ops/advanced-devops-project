@@ -38,10 +38,10 @@ All services are containerized using Docker and orchestrated with Docker Compose
 ## 📸 Screenshots
 
 ### Frontend UI
-![Frontend](screenshots/frontend.png)
+![Frontend](Screenshots/Frontend.png)
 
 ### Backend API Response
-![Backend](screenshots/backend.png)
+![Backend](Screenshots/Backend.png)
 
 ---
 
