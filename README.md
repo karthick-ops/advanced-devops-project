@@ -1,4 +1,4 @@
-# 🚀 Advanced DevOps Micr`oservices Project
+# Advanced DevOps Microservices Project
 
 ## 📌 Overview
 This project demonstrates a production-style DevOps setup using a microservices architecture with full CRUD functionality.
